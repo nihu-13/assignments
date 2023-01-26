@@ -155,14 +155,44 @@ obj4.start()
 obj5.start() 
 # 7. Write a python script to create a clock where 1st thread will print the current time
 # every second and 2nd will print “1 Minute Completed” after every 1 minute.
-
+from time import *
+class Clock(Thread):
+    def run(self):
+        while True:
+            print(strftime("%H:%M:%S", gmtime()))
+            sleep(1)
+        
+class Check(Thread):
+    def run(self):
+        while True:
+            print("1 Minute Completed")
+            sleep(60)
+                
+obj1=Clock()
+obj2=Check()
+obj1.start()     
+obj2.start()
 # 8. Write a python script to change the name of the Thread.
 thread=Thread()
 print(thread.name)
 thread.name="Niharka"
 print(thread.name)
 # 9. Write a python script to join 2 threads after printing completing the first Question.
+class First(Thread):
+    def run(self):
+        print("First Thread")
 
+
+
+class Second(Thread):
+    def run(self):
+        print("Second Thread")
+
+obj1 = First() 
+obj2 = Second() 
+print("completing the first Question")
+obj1.join()
+obj2.join()
 # 10. Write a python script to check whether a given number is prime or armstrong number
 # using 2 different threads.
 class First(Thread):
