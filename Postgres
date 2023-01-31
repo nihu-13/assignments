@@ -1,0 +1,23 @@
+1. Create a table (student) with 3 columns (rollno, name, course).
+create table student(rollno int,name text,course text);
+2. Insert records for 4 students.
+insert into student values(1,"Niharika","Fullstack"),(2,"Varsha","Fullstack"),(3,"Nihal","Python",)(4,"Shil","Java");
+3. Write a Select query to fetch all the students.
+select * from student;
+4. Update the student name of rollno 3 with ‘Mohan’
+update student set name="Mohal" where rollno=1;
+5. Delete any student from table with their rollno.
+delete from student where rollno=3;
+6. Delete all the data from student table.
+delete from student;
+7. Drop the student table.
+drop table student;
+8. Create Courses table (cid, cname) where cid is a primary key and Student table
+(rollno, name, cid) where rollno is a primary key and cid is a foreign key.
+create table student(rollno int,name text,cid int,primary key (rollno));
+create table courses(cid int,cname text,primary key(cid),constaint fk foreign key(cid) referenes student(cid));
+9. Insert data in both the tables.
+insert into student values(1,'Niharika',101);
+insert into courses values(101,'Fullstack');
+10. Select all the students who are doing a specific course, eg. Python.
+select * from student where cid = (select * from courses where cname="Python"); 
